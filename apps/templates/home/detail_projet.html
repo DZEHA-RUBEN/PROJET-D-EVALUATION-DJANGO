@@ -1,0 +1,73 @@
+{% extends "layouts/base.html" %}
+
+{% block title %} User Profile {% endblock %} 
+
+<!-- Specific Page CSS goes HERE  -->
+{% block stylesheets %}{% endblock stylesheets %}
+
+{% block content %}
+
+  <div class="content">
+    <div class="row">
+      <div class="col-md-8">
+        <div class="card">
+          <div class="card-header">
+            <h5 class="title">
+                <span>
+                    <h2>{{ projet.titre }}</h2>
+                    <p>{{ projet.matiere }}</p>
+                    <p>Statut: {{ projet.get_statut_display }}</p>
+                </span>
+            </h5>
+        </div>
+        <div class="card-body">
+            <form method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div class="row">
+                    <div class="col-md-5 pr-md-1">
+                      <div class="form-group">
+                        <label>Etudiant:</label>
+                        {{form.etudiant}} 
+                      </div>
+                    </div>
+                    <div class="col-md-5 pr-md-1">
+                        <div class="form-group">
+                          <label>Projets:</label>
+                          {{form.projet}} 
+                        </div>
+                      </div>
+                    </div>
+                      <div class="col-md-5 pr-md-1">
+                        <div >
+                          <label>Fichier soumission:</label>
+                          {{form.fichier_soumission}} 
+                        </div>
+                      </div>
+                    </div>
+                      <div class="col-md-5 pr-md-1">
+                        <div class="form-group">
+                          <label>Notes:</label>
+                          {{form.note}} 
+                        </div>
+                      </div> 
+                      <div class="col-md-5 pr-md-1">
+                        <div class="form-group">
+                          <label>Commentaires:</label>
+                          {{form.commentaire}} 
+                        </div>
+                      </div>
+                      <div class="card-footer">
+                        <button type="submit" class="btn btn-fill btn-primary">Soumettre</button>
+                      </div>
+                     
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock content %}
+
+<!-- Specific Page JS goes HERE  -->
+{% block javascripts %}{% endblock javascripts %}

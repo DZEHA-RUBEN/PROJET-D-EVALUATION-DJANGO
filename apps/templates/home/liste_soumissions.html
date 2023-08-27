@@ -1,0 +1,37 @@
+{% extends "layouts/base.html" %}
+
+{% block title %} Notifications {% endblock %} 
+
+<!-- Specific Page CSS goes HERE  -->
+{% block stylesheets %}{% endblock stylesheets %}
+
+{% block content %}
+{% for soumission in soumissions %}
+  <div class="content">
+    <div class="row">
+      <div class="col-md-6">
+        <div class="card">
+          <div class="card-header">
+            <h4 class="card-title">{{ soumission.projet.titre }}</h4>
+          </div>
+          <div class="card-body">
+            <div class="alert alert-info">
+              <span>Fichier soumission: <a href="{{ soumission.fichier_soumission.url }}">{{ soumission.fichier_soumission }}</a></span>
+            </div>
+            <div class="alert alert-info">
+              <span>Note: {{ soumission.note }}</span>
+            </div>
+            <div class="alert alert-info" >
+              <span >Commentaire: {{ soumission.commentaire }}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+  {% endfor %}
+{% endblock content %}
+
+<!-- Specific Page JS goes HERE  -->
+{% block javascripts %}{% endblock javascripts %}

@@ -1,0 +1,29 @@
+{% extends "layouts/base.html" %}
+
+{% block title %} Tables {% endblock %} 
+<!-- Specific Page CSS goes HERE  -->
+{% block stylesheets %}{% endblock stylesheets %}
+
+{% block content %}
+{% for projet in projets %}
+<div class="content">
+    <div class="row">
+      <div class="col-md-6">
+        <div class="card">
+          <div class="card-header">
+            <h4 class="card-title">TITRE : {{ projet.titre }}</h4>
+        </div>
+        <div class="card-body">
+          <div class="alert alert-info">
+            <span>Matières :  {{ projet.matiere }} <a class="btn btn-fill btn-primary" href="{% url 'detail_projet' projet.id %}">    Voir les détails</a><span>
+      
+</div>
+</div>
+
+</div>
+</div>
+{% endfor %}
+{% endblock content %}
+
+<!-- Specific Page JS goes HERE  -->
+{% block javascripts %}{% endblock javascripts %}
